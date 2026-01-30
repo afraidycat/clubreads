@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { BookOpen, Plus, Users, Calendar, LogOut, Sparkles, Lock } from "lucide-react"
 import { UpgradeButton } from "./upgrade-button"
+import { ManageSubscriptionButton } from "./manage-subscription-button"
 
 export default async function DashboardPage() {
   const supabase = await createClient()
@@ -71,7 +72,10 @@ export default async function DashboardPage() {
               {profile?.full_name || user.email}
             </span>
             {profile?.is_premium && (
+              <>
               <Badge variant="amber">Premium</Badge>
+              <ManageSubscriptionButton />
+              </>
             )}
             <form action="/api/auth/signout" method="post">
               <Button variant="ghost" size="icon">

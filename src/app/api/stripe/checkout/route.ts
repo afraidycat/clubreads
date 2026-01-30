@@ -51,7 +51,7 @@ export async function POST(request: Request) {
           quantity: 1,
         },
       ],
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard?upgraded=true`,
+      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/upgrade-success`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/dashboard?upgraded=false`,
       metadata: {
         user_id: user.id,
