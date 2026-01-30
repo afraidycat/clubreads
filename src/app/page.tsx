@@ -289,7 +289,7 @@ export default function HomePage() {
             <span className="font-[family-name:var(--font-display)] font-semibold">ClubReads</span>
           </div>
           <p className="text-sm text-[var(--muted-foreground)]">
-            © 2025 ClubReads. Built with ❤️ for book lovers.
+            © 2026 ClubReads. Built with ❤️ for book lovers.
           </p>
         </div>
       </footer>

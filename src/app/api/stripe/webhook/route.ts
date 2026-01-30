@@ -1,8 +1,14 @@
-import { createClient } from "@/lib/supabase/server"
+import { createClient } from "@supabase/supabase-js"
 import { NextResponse } from "next/server"
 import Stripe from "stripe"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+
+// Use service role for webhook (no cookies available)
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.SUPABASE_SERVICE_ROLE_KEY!
+)
 
 export async function POST(request: Request) {
   const body = await request.text()
@@ -24,8 +30,6 @@ export async function POST(request: Request) {
     )
   }
 
-  const supabase = await createClient()
-
   try {
     switch (event.type) {
       case "checkout.session.completed": {
@@ -45,7 +49,6 @@ export async function POST(request: Request) {
         const subscription = event.data.object as Stripe.Subscription
         const customerId = subscription.customer as string
 
-        // Find user by customer ID
         const { data: profile } = await supabase
           .from("profiles")
           .select("id")
@@ -66,7 +69,6 @@ export async function POST(request: Request) {
         const customerId = subscription.customer as string
         const isPremium = subscription.status === "active"
 
-        // Find user by customer ID
         const { data: profile } = await supabase
           .from("profiles")
           .select("id")
