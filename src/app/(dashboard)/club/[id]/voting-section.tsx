@@ -117,8 +117,8 @@ export function VotingSection({ books, userId, clubId, isOwnerOrAdmin }: VotingS
           <Vote className="w-4 h-4" />
           Nominations ({books.length})
         </h4>
-        {books.length >= 2 && isOwnerOrAdmin && (
-          <Button 
+        {books.length >= 2 && isOwnerOrAdmin && books.some(b => b.votes && b.votes.length > 0) && (
+          <Button
             size="sm" 
             onClick={handleSelectWinner}
             disabled={selecting}
