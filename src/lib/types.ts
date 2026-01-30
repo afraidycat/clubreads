@@ -37,7 +37,7 @@ export type Theme = {
   sort_order: number
 }
 
-export type BookStatus = 'nominated' | 'voting' | 'selected' | 'reading' | 'completed'
+export type BookStatus = 'nominated' | 'voting' | 'selected' | 'reading' | 'finished'
 
 export type Book = {
   id: string
