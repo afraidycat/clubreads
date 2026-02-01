@@ -18,6 +18,7 @@ import { ScheduleMeetingForm } from "./schedule-meeting-form"
 import { UpcomingMeetings } from "./upcoming-meetings"
 import { FinishBookButton } from "./finish-book-button"
 import { ReadingHistory } from "./reading-history"
+import { WelcomeModal } from "./welcome-modal"
 
 interface ClubPageProps {
   params: Promise<{ id: string }>
@@ -119,6 +120,9 @@ export default async function ClubPage({ params }: ClubPageProps) {
 
   return (
     <div className="min-h-screen bg-[var(--background)]">
+      {/* Welcome Modal for new club owners */}
+      {isOwner && <WelcomeModal clubId={id} clubName={club.name} />}
+      
       {/* Header */}
       <header className="border-b border-[var(--border)] bg-white">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
