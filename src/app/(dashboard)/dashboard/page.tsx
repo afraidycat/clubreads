@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { BookOpen, Plus, Users, Calendar, LogOut, Sparkles, Lock, HelpCircle } from "lucide-react"
+import { BookOpen, Plus, Users, Calendar, LogOut, Sparkles, Lock } from "lucide-react"
 import { UpgradeButton } from "./upgrade-button"
 import { ManageSubscriptionButton } from "./manage-subscription-button"
 
@@ -68,13 +68,6 @@ export default async function DashboardPage() {
             <span className="font-[family-name:var(--font-display)] text-xl font-semibold">ClubReads</span>
           </Link>
           <div className="flex items-center gap-4">
-            <Link 
-              href="/guide" 
-              className="flex items-center gap-1 text-sm text-[var(--muted-foreground)] hover:text-[var(--foreground)]"
-            >
-              <HelpCircle className="w-4 h-4" />
-              Guide
-            </Link>
             <span className="text-sm text-[var(--muted-foreground)]">
               {profile?.full_name || user.email}
             </span>
@@ -233,6 +226,18 @@ export default async function DashboardPage() {
           </div>
         )}
       </main>
+
+      {/* Footer */}
+      <footer className="border-t border-[var(--border)] bg-white mt-12">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--muted-foreground)]">
+          <p>© {new Date().getFullYear()} ClubReads</p>
+          <div className="flex items-center gap-4">
+            <Link href="/guide" className="hover:text-[var(--foreground)]">
+              Book Club Guide
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
