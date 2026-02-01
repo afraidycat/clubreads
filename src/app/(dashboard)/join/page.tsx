@@ -58,8 +58,8 @@ function JoinPageContent() {
 
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) {
-      // Redirect to signup with return URL
-      router.push(`/signup?next=/join?code=${code}`)
+      // Redirect to signup with return URL (properly encoded)
+      router.push(`/signup?next=${encodeURIComponent(`/join?code=${code}`)}`)
       return
     }
 
