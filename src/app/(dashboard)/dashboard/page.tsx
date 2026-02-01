@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge"
 import { BookOpen, Plus, Users, Calendar, LogOut, Sparkles, Lock } from "lucide-react"
 import { UpgradeButton } from "./upgrade-button"
 import { ManageSubscriptionButton } from "./manage-subscription-button"
+import { FloatingHelpButton } from "@/components/floating-help-button"
 
 export default async function DashboardPage() {
   const supabase = await createClient()
@@ -227,17 +228,7 @@ export default async function DashboardPage() {
         )}
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-[var(--border)] bg-white mt-12">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[var(--muted-foreground)]">
-          <p>© {new Date().getFullYear()} ClubReads</p>
-          <div className="flex items-center gap-4">
-            <Link href="/guide" className="hover:text-[var(--foreground)]">
-              Book Club Guide
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <FloatingHelpButton />
     </div>
   )
 }
