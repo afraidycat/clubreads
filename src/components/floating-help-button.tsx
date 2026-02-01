@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { HelpCircle, X, BookOpen } from "lucide-react"
+import { HelpCircle, X, BookOpen, MessageSquare } from "lucide-react"
 
 export function FloatingHelpButton() {
   const [isOpen, setIsOpen] = useState(false)
@@ -17,9 +17,19 @@ export function FloatingHelpButton() {
             className="flex items-center gap-3 px-4 py-2 text-sm hover:bg-[var(--muted)]/50 transition-colors"
             onClick={() => setIsOpen(false)}
           >
-            <BookOpen className="w-4 h-4 text-[var(--plum-600)]" />
+          <BookOpen className="w-4 h-4 text-[var(--plum-600)]" />
             Book Club Guide
           </Link>
+          <a 
+            href="https://forms.gle/rpjJBhpw49jnum7j9"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 px-4 py-2 text-sm hover:bg-[var(--muted)]/50 transition-colors"
+            onClick={() => setIsOpen(false)}
+          >
+          <MessageSquare className="w-4 h-4 text-[var(--plum-600)]" />
+            Send Feedback
+          </a>
         </div>
       )}
 
