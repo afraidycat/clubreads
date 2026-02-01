@@ -220,6 +220,16 @@ function JoinPageContent() {
                     )}
                   </Button>
                 </div>
+                
+                <p className="text-xs text-center text-[var(--muted-foreground)]">
+                  Already have an account?{" "}
+                  <Link 
+                    href={`/login?next=${encodeURIComponent(`/join?code=${code}`)}`}
+                    className="text-[var(--primary)] hover:underline font-medium"
+                  >
+                    Sign in
+                  </Link>
+                </p>
               </div>
             )}
           </CardContent>
