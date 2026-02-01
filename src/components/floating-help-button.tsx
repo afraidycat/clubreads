@@ -20,16 +20,14 @@ export function FloatingHelpButton() {
           <BookOpen className="w-4 h-4 text-[var(--plum-600)]" />
             Book Club Guide
           </Link>
-          <a 
-            href="https://forms.gle/rpjJBhpw49jnum7j9"
-            target="_blank"
-            rel="noopener noreferrer"
+           <Link
+            href="/feedback"
             className="flex items-center gap-3 px-4 py-2 text-sm hover:bg-[var(--muted)]/50 transition-colors"
             onClick={() => setIsOpen(false)}
           >
-          <MessageSquare className="w-4 h-4 text-[var(--plum-600)]" />
+            <MessageSquare className="w-4 h-4 text-[var(--plum-600)]" />
             Send Feedback
-          </a>
+          </Link>
         </div>
       )}
 
